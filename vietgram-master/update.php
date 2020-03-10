@@ -1,36 +1,18 @@
 <?php
 session_start();
 include('koneksi.php');
-    $new_name = $_POST['name'];
-    $new_username = $_POST['username'];
-    $new_website = $_POST['website'];
-    $new_bio = $_POST['bio'];
-    $new_email = $_POST['email'];
-    $new_phone = $_POST['number_phone'];
-    $new_gender = $_POST['gender'];
-    // echo $new_bio;
-    // di assign null biar bisa di ganti
-    $queryUpdate = "UPDATE profile SET name = '".$new_name."', username = '".$new_username."', 
-                    bio = '".$new_bio."', email = '".$new_email."', 
-                    number_phone = '".$new_phone."', gender = '".$new_gender."', 
-                    website = '".$new_website."' WHERE username = '".$_SESSION['username']."'";
-    // echo $queryUpdate;
-    if(mysqli_query($koneksi,$queryUpdate))
+    $query = mysqli_query($koneksi, "UPDATE profile SET name = '".$_POST["nama"]."', website = '".$_POST["website"]."', bio = '".$_POST["bio"]."', email = '".$_POST["email"]."', number_phone = '".$_POST["phone"]."', gender = '".$_POST["gender"]."' WHERE username = '".$_SESSION["username"]."'");
+    
+    if($query)
     {
-        $_SESSION["name"] = $new_name;
-        $_SESSION["username"] = $new_username;
-        $_SESSION["website"] = $new_website;
-        $_SESSION["bio"] = $new_bio;
-        $_SESSION["email"] = $new_email;
-        $_SESSION["number_phone"] = $new_phone;
-        $_SESSION["gender"] = $new_gender;
-        
-        header("location:feed.php");
-    } 
-
-    else 
-    {
-        // echo "error";
-         header("location:edit-profile.php");
+        $_SESSION["name"] = $_POST["nama"];
+        $_SESSION["website"] = $_POST["website"];
+        $_SESSION["bio"] = $_POST["bio"];
+        $_SESSION["email"] = $_POST["email"];
+        $_SESSION["number_phone"] = $_POST["phone"];
+        $_SESSION["gender"] =$_POST["gender"];
+        header("location:profile.php");
+    }else {
+        header("location:edit-profile.php");
     }
 ?>
