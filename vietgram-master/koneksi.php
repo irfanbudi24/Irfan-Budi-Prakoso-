@@ -1,4 +1,4 @@
 <?php
-	$koneksi = mysqli_connect("localhost","root","",
+	$conn = mysqli_connect("localhost","root","",
 	"vietgram") or die ("Koneksi gagal!");
 ?>

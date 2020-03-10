@@ -1,7 +1,10 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
+<?php 
+session_start();
+echo $_SESSION["name"];
+?>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,7 +17,7 @@
 <body>
     <nav class="navigation">
         <div class="navigation__column">
-            <a href="feed.html">
+            <a href="feed.php">
                 <!-- Master branch comment -->
                 <img src="images/logo.png" />
             </a>
@@ -26,7 +29,7 @@
         <div class="navigation__column">
             <ul class="navigations__links">
                 <li class="navigation__list-item">
-                    <a href="explore.html" class="navigation__link">
+                    <a href="explore.php" class="navigation__link">
                         <i class="fa fa-compass fa-lg"></i>
                     </a>
                 </li>
@@ -36,7 +39,7 @@
                     </a>
                 </li>
                 <li class="navigation__list-item">
-                    <a href="profile.html" class="navigation__link">
+                    <a href="profile.php" class="navigation__link">
                         <i class="fa fa-user-o fa-lg"></i>
                     </a>
                 </li>

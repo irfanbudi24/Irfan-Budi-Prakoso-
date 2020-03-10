@@ -1,9 +1,9 @@
 <?php 
     session_start();
     include "koneksi.php";
-     echo $_SESSION['username'];
+    echo $_SESSION['username'];
     $user_id = $_SESSION['user_id'];
-    $result = mysqli_query($koneksi,"select * from profile where username='". $_SESSION['username']. "'" );
+    $result = mysqli_query($conn,"select * from profile where username='".$_SESSION['username']."'" );
     $data = mysqli_fetch_assoc($result);
     echo $_SESSION['user_id'];
 ?>
@@ -22,7 +22,7 @@
 <body>
     <nav class="navigation">
         <div class="navigation__column">
-            <a href="feed.html">
+            <a href="feed.php">
                 <img src="images/logo.png" />
             </a>
         </div>
@@ -33,7 +33,7 @@
         <div class="navigation__column">
             <ul class="navigations__links">
                 <li class="navigation__list-item">
-                    <a href="explore.html" class="navigation__link">
+                    <a href="explore.php" class="navigation__link">
                         <i class="fa fa-compass fa-lg"></i>
                     </a>
                 </li>
@@ -43,7 +43,7 @@
                     </a>
                 </li>
                 <li class="navigation__list-item">
-                    <a href="profile.html" class="navigation__link">
+                    <a href="profile.php" class="navigation__link">
                         <i class="fa fa-user-o fa-lg"></i>
                     </a>
                 </li>
@@ -54,7 +54,7 @@
         <div class="edit-profile__container">
             <header class="edit-profile__header">
                 <div class="edit-profile__avatar-container">
-                    <img src="images/me.jpg" class="edit-profile__avatar" />
+                    <img src="images/avatar.jpg" class="edit-profile__avatar" />
                 </div>
                 <h4 class="edit-profile__username"><?php echo $_SESSION['username'];?></h4>
             </header>
@@ -65,11 +65,11 @@
                 </div>
                 <div class="form__row">
                     <label for="user-name" class="form__label">Username:</label>
-                    <input name="user-name" type="text" class="form__input" value="<?php echo $_SESSION['username']?>" disabled/>
+                    <input name="user-name" type="text" class="form__input" value="<?php echo $_SESSION['username'];?>" disabled/>
                 </div>
                 <div class="form__row">
                     <label for="website" class="form__label">Website:</label>
-                    <input name="website" type="url" class="form__input" value="<?php echo $_SESSION['website']?>"/>
+                    <input name="website" type="url" class="form__input" value="<?php echo $_SESSION['website'];?>"/>
                 </div>
                 <div class="form__row">
                     <label for="bio" class="form__label">Bio:</label>
@@ -77,11 +77,11 @@
                 </div>
                 <div class="form__row">
                     <label for="email" class="form__label">Email:</label>
-                    <input name="email" type="email" class="form__input" value="<?php echo $_SESSION['email']?>"/>
+                    <input name="email" type="email" class="form__input" value="<?php echo $_SESSION['email'];?>"/>
                 </div>
                 <div class="form__row">
                     <label for="phone" class="form__label">Phone Number:</label>
-                    <input name="phone" type="text" class="form__input" value="<?php echo $_SESSION['number_ph']?>"/>
+                    <input name="phone" type="text" class="form__input" value="<?php echo $_SESSION['number_ph'];?>"/>
                 </div>
                 <div class="form__row">
                     <label for="gender" class="form__label">Gender:</label>

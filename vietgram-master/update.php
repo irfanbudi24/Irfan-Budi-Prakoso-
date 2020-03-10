@@ -1,7 +1,7 @@
 <?php
 session_start();
 include('koneksi.php');
-    $query = mysqli_query($koneksi, "UPDATE profile SET name = '".$_POST["nama"]."', website = '".$_POST["website"]."', bio = '".$_POST["bio"]."', email = '".$_POST["email"]."', number_phone = '".$_POST["phone"]."', gender = '".$_POST["gender"]."' WHERE username = '".$_SESSION["username"]."'");
+    $query = mysqli_query($conn, "UPDATE profile SET name = '".$_POST["nama"]."', website = '".$_POST["website"]."', bio = '".$_POST["bio"]."', email = '".$_POST["email"]."', number_phone = '".$_POST["phone"]."', gender = '".$_POST["gender"]."' WHERE username = '".$_SESSION["username"]."'");
     
     if($query)
     {
